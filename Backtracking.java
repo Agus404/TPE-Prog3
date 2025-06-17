@@ -6,15 +6,17 @@ public class Backtracking {
     private List<Maquina> secuenciaActual;
     private List<Maquina> secuenciaSolucion;
     private int cantEstadosGenerados;
+    private int piezasRequeridas;
 
     public Backtracking(int piezasTotales, List<Maquina> maquinas){
         secuenciaActual = new LinkedList<>();
         secuenciaSolucion = new LinkedList<>();
         cantEstadosGenerados = 0;
-        this.generarSecuenciaMaquinas(piezasTotales, maquinas, 0);
+        piezasRequeridas = piezasTotales;
+        this.generarSecuenciaMaquinas(maquinas, 0);
     }
 
-    private void generarSecuenciaMaquinas(int piezasRequeridas, List<Maquina> maquinas, int piezasProducidas) {
+    private void generarSecuenciaMaquinas(List<Maquina> maquinas, int piezasProducidas) {
         cantEstadosGenerados++;
         if(piezasRequeridas==piezasProducidas){
             if (secuenciaSolucion.isEmpty() || secuenciaActual.size() < secuenciaSolucion.size()) {
@@ -27,7 +29,7 @@ public class Backtracking {
                 piezasProducidas += m.getPiezas();
                 if(piezasProducidas <= piezasRequeridas){
                     secuenciaActual.add(m);
-                    generarSecuenciaMaquinas(piezasRequeridas,maquinas,piezasProducidas);
+                    generarSecuenciaMaquinas(maquinas,piezasProducidas);
                     secuenciaActual.removeLast();
                 }
                 piezasProducidas -= m.getPiezas();
@@ -46,7 +48,8 @@ public class Backtracking {
     public String toString(){
         return  "Backtracking:" + "\n" + 
                 "Solucion obtenida: " + getSecuenciaSolucion() + "\n"  + 
+                "Piezas producidas: " + piezasRequeridas + "\n"  + 
                 "Cantidad de puestas en funcionamiento: " + getSecuenciaSolucion().size() + "\n"  + 
-                "Cantidad de estados generados: " + getCantEstadosGenerados();
+                "Cantidad de estados generados: " + getCantEstadosGenerados() + "\n";
     }
 }
