@@ -29,7 +29,8 @@ public class Fabrica {
 
         Backtracking backtracking = new Backtracking(fabrica.getPiezasTotales(),fabrica.getMaquinas());
         System.out.println(backtracking);
-        //System.out.println(greedy);
+        Greedy greedy = new Greedy(fabrica.getPiezasTotales(),fabrica.getMaquinas());
+        System.out.println(greedy);
     }
 
     public void leerArchivo(String source){

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,16 +13,27 @@ public class Greedy {
         secuenciaSolucion = new LinkedList<>();
         cantCandidatosConsiderados = 0;
         piezasRequeridas = piezasTotales;
-        // maquinas.sort() ???
+        maquinas.sort(Comparator.comparingInt(Maquina::getPiezas).reversed());
         this.generarSecuenciaMaquinas(maquinas, 0);
     }
 
     private void generarSecuenciaMaquinas(List<Maquina> maquinas, int piezasProducidas) {
-
-        //  GREEDY A COMPLETAR
-        //  asignar solución a secuenciaSolucion
-        //  calcular cantCandidatosConsiderados
-
+        while (!maquinas.isEmpty()) {
+            if(piezasRequeridas==piezasProducidas) {
+                secuenciaSolucion = new LinkedList<>(secuenciaActual);
+                maquinas.clear();
+            }
+            else {
+                if ((piezasProducidas + maquinas.getFirst().getPiezas()) <= piezasRequeridas){
+                    secuenciaActual.add(maquinas.getFirst());
+                    piezasProducidas+=maquinas.getFirst().getPiezas();
+                }
+                else {
+                    maquinas.removeFirst();
+                }
+            }
+            cantCandidatosConsiderados++;
+        }
     }
 
     public List<Maquina> getSecuenciaSolucion() {
