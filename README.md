@@ -34,8 +34,6 @@ Y una necesidad de producir **12 piezas**, algunas soluciones posibles son:
 - `[M1, M3, M4]`  
 - `[M3, M3, M3]`  
 
-Ambas producen exactamente 12 piezas, pero la primera opción requiere menos puestas en funcionamiento.
-
 ---
 
 ## 🧾 Formato del archivo de entrada
