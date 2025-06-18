@@ -45,11 +45,21 @@ public class Backtracking {
         return cantEstadosGenerados;
     }
 
+    public int getPiezasRequeridas() {
+        return piezasRequeridas;
+    }
+
     public String toString(){
+        String resultado;
+        if(secuenciaSolucion.isEmpty()){
+            resultado = "No hay solución";
+        }else{
+            resultado = "Solucion obtenida: " + getSecuenciaSolucion() + "\n"  + 
+                        "Piezas producidas: " + getPiezasRequeridas() + "\n"  + 
+                        "Cantidad de puestas en funcionamiento: " + getSecuenciaSolucion().size();
+        }
         return  "Backtracking:" + "\n" + 
-                "Solucion obtenida: " + getSecuenciaSolucion() + "\n"  + 
-                "Piezas producidas: " + piezasRequeridas + "\n"  + 
-                "Cantidad de puestas en funcionamiento: " + getSecuenciaSolucion().size() + "\n"  + 
+                resultado + "\n"  + 
                 "Cantidad de estados generados: " + getCantEstadosGenerados() + "\n";
     }
 }

@@ -17,14 +17,19 @@ public class Fabrica {
     public static void main(String[] args) {
         Fabrica fabrica = new Fabrica("data.txt");
 
-        String resultado = fabrica.getPiezasTotales() + "\n";
-        for (Maquina m : fabrica.getMaquinas()) {
-            resultado += m.toString() + "\n";
+        if (fabrica.getPiezasTotales()==0) {
+            System.out.println("Error al leer el archivo.");
+            return;
         }
+
+        String resultado = fabrica.getPiezasTotales() + "\n";
+        for (Maquina m : fabrica.getMaquinas()) 
+            resultado += m.toString() + "\n";
         System.out.println(resultado);
 
         Backtracking backtracking = new Backtracking(fabrica.getPiezasTotales(),fabrica.getMaquinas());
         System.out.println(backtracking);
+        //System.out.println(greedy);
     }
 
     public void leerArchivo(String source){

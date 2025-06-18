@@ -18,10 +18,10 @@ public class Greedy {
     }
 
     private void generarSecuenciaMaquinas(List<Maquina> maquinas, int piezasProducidas) {
-        
-        //
+
         //  GREEDY A COMPLETAR
-        //
+        //  asignar solución a secuenciaSolucion
+        //  calcular cantCandidatosConsiderados
 
     }
 
@@ -33,11 +33,21 @@ public class Greedy {
         return cantCandidatosConsiderados;
     }
 
+    public int getPiezasRequeridas() {
+        return piezasRequeridas;
+    }
+
     public String toString(){
+        String resultado;
+        if(secuenciaSolucion.isEmpty()){
+            resultado = "No hay solución";
+        }else{
+            resultado = "Solucion obtenida: " + getSecuenciaSolucion() + "\n"  + 
+                        "Piezas producidas: " + getPiezasRequeridas() + "\n"  + 
+                        "Cantidad de puestas en funcionamiento: " + getSecuenciaSolucion().size();
+        }
         return  "Greedy:" + "\n" + 
-                "Solucion obtenida: " + getSecuenciaSolucion() + "\n"  + 
-                "Piezas producidas: " + piezasRequeridas + "\n"  + 
-                "Cantidad de puestas en funcionamiento: " + getSecuenciaSolucion().size() + "\n"  + 
+                resultado + "\n"  + 
                 "Cantidad de candidatos considerados: " + getCantCandidatosConsiderados() + "\n";
     }
 }
