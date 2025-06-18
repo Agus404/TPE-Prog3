@@ -85,6 +85,33 @@ Greedy
 📈 Costo de ejecución (candidatos cons
 
 
-Explicacion de estrategias
+## 🧠 Explicación de las estrategias
+
+### 🔍 Backtracking
+
+El objetivo es encontrar la **secuencia más corta** de máquinas cuya producción total sea exactamente igual a la cantidad de piezas requeridas.
+
+- En cada llamada recursiva se genera un nuevo estado agregando una máquina a la secuencia actual.
+- Se exploran todas las combinaciones posibles.
+- Una secuencia es considerada **solución válida** si la suma de sus producciones es exactamente igual al objetivo.
+- Se guarda únicamente la **secuencia válida más corta** encontrada.
+- Se aplican **podas** para mejorar la eficiencia:
+  - Si la secuencia actual ya supera en longitud a la mejor solución conocida, se descarta.
+  - Si la suma de piezas supera la cantidad requerida, también se descarta.
+- Se contabiliza la **cantidad de estados generados** mediante una variable `cantEstadosGenerados`.
+
+---
+
+### ⚡ Greedy
+
+El objetivo es también encontrar una secuencia de máquinas que produzca exactamente la cantidad de piezas necesarias, pero usando una estrategia más directa y eficiente.
+
+- Primero, se ordena la lista de máquinas de **mayor a menor** según la cantidad de piezas que producen.
+- En cada paso se elige la máquina **más grande posible que no exceda la cantidad restante a producir**.
+- Si una máquina excede la cantidad restante, se descarta.
+- El proceso se repite hasta alcanzar exactamente el total de piezas requeridas o hasta que no queden más opciones válidas.
+- Si no se logra completar exactamente la cantidad requerida con las máquinas disponibles, se concluye que **no existe solución posible**.
+- Se registra la **cantidad de candidatos considerados** en `cantCandidatosConsiderados`.
+ 
 
 
