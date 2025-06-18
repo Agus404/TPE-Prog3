@@ -2,6 +2,12 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+// Se busca encontrar la menor combinación de máquinas que produzca una cantidad de piezas determinadas.
+// Para ello, lo primero que hacemos es agruparlas en un listado de mayor a menor en cantidad de piezas producidas, 
+// con eso nos aseguramos que siempre la primera es la que mas cantidad de piezas puede elaborar y en el caso de que
+// exceda la cantidad de piezas a producir directamente se saca de las opciones posibles, en el caso de no existir una
+// secuencencia solucion implica que no existe solucion posible. 
+
 public class Greedy {
     private List<Maquina> secuenciaActual;
     private List<Maquina> secuenciaSolucion;
