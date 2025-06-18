@@ -111,5 +111,6 @@ El objetivo es también encontrar una secuencia de máquinas que produzca exacta
 - Si no se logra completar exactamente la cantidad requerida con las máquinas disponibles, se concluye que **no existe solución posible**.
 - Se registra la **cantidad de candidatos considerados** en `cantCandidatosConsiderados`.
  
+- **Desarrollado en VSCode con Extension Pack for Java**
 
 
